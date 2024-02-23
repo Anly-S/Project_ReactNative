@@ -3,10 +3,13 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import ScanCameraComponent from '../components/ScanCameraComponent';
 import {userLogin} from '../context/userSlice';
 import {useDispatch} from 'react-redux';
+import Constants from '../utils/Constants';
+import {setStringItem} from '../utils/Utils';
 
 const ProfileScreen = () => {
   const dispatch = useDispatch();
   const LogoutFunction = async () => {
+    setStringItem(Constants.IS_LOGIN, 'false');
     dispatch(userLogin(false));
   };
 
