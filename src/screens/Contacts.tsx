@@ -116,7 +116,10 @@ const ContactsScreen = () => {
           const userId = userDataParsed.user_id;
           const token = userDataParsed.token;
           const contacts = await listContacts({user_id: userId, token: token});
-          setContactList(contacts.contactResp);
+          const sortedData = contacts.contactResp.sort((a: any, b: any) =>
+            a.contact_name.localeCompare(b.contact_name),
+          );
+          setContactList(sortedData);
           setLoading(false);
         }, 1000);
       } catch (error) {
