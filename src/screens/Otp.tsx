@@ -6,6 +6,9 @@ import LoginScreen from '../screens/Login';
 
 const OtpScreen = () => {
   const navigation = useNavigation();
+  const LoginFunction = () => {
+    navigation.navigate('LoginScreen');
+  };
   return (
     <View style={styles.container}>
       <Image
@@ -22,7 +25,9 @@ const OtpScreen = () => {
       </View>
       <ButtonComponent
         title="VERIFY"
-        onPress={() => navigation.navigate('Login')}
+        function={() => {
+          LoginFunction();
+        }}
       />
     </View>
   );

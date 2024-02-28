@@ -1,11 +1,14 @@
 // screens/Login.js
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
 import ButtonComponent from '../components/ButtonComponent';
 import {useNavigation} from '@react-navigation/native';
 import LoginScreen from '../screens/Login';
+import InputComponent from '../components/InputComponent';
 
 const ChangePasswordScreen = () => {
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const navigation = useNavigation();
   const handlePress = () => {
     navigation.navigate('LoginScreen');
@@ -17,8 +20,16 @@ const ChangePasswordScreen = () => {
         style={styles.logo}
         source={require('../assets/experionLogo.png')}
       />
-      <TextInput style={styles.input} placeholder="New password" />
-      <TextInput style={styles.input} placeholder="Confirm Password" />
+      <InputComponent
+        inputHead="New Password"
+        inputValue={newPassword}
+        setText={setNewPassword}
+      />
+      <InputComponent
+        inputHead="Confirm Password"
+        inputValue={confirmPassword}
+        setText={setConfirmPassword}
+      />
       <ButtonComponent title="Change Password" onPress={handlePress} />
     </View>
   );

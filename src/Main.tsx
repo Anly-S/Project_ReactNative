@@ -7,6 +7,7 @@ import Constants from './utils/Constants';
 import {getItem} from './utils/Utils';
 import {AuthNavigation} from './navigations/AuthNavigation';
 import Splashscreen from './screens/SplashScreen';
+import {userData} from './context/dataSlice';
 
 const Main = () => {
   const isLoggedIn = useSelector((state: any) => state.userReducer.isLoggedIn);
@@ -20,6 +21,9 @@ const Main = () => {
 
       if (isLogin === 'true') {
         dispatch(userLogin(true));
+        const userDatas = (await getItem(Constants.USER_DATA)) ?? '{}';
+        const parsedData = JSON.parse(userDatas);
+        dispatch(userData(parsedData));
       } else {
         dispatch(userLogin(false));
       }

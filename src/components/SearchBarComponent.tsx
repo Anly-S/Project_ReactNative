@@ -1,13 +1,14 @@
 import React from 'react';
 import {View, TextInput, StyleSheet, Image} from 'react-native';
 
-const SearchBarComponent = () => {
+const SearchBarComponent = (props: any) => {
   return (
     <View style={styles.searchContainer}>
       <TextInput
         style={styles.searchInput}
         placeholder="Search contacts"
         placeholderTextColor="#888"
+        onChangeText={props.onChangetext}
       />
       <Image
         source={require('../assets/search.png')}

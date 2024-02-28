@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
 import ButtonComponent from '../components/ButtonComponent';
 import {useNavigation} from '@react-navigation/native';
+import OtpScreen from '../screens/Otp';
+import InputComponent from '../components/InputComponent';
 
 const OtpSend = () => {
+  const [email, setEmail] = useState('');
   const navigation = useNavigation();
-  //   const handlePress = () => {
-  //     // const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  //     // setLoggedIn(true);
-  //     navigation.navigate('Otp');
-  //   };
+  const OtpFunction = () => {
+    navigation.navigate('Otp');
+  };
 
   return (
     <View style={styles.container}>
@@ -17,10 +18,12 @@ const OtpSend = () => {
         style={styles.logo}
         source={require('../assets/experionLogo.png')}
       />
-      <TextInput style={styles.input} placeholder="Email" />
+      <InputComponent inputHead="Email" inputValue={email} setText={setEmail} />
       <ButtonComponent
         title="SEND"
-        onPress={() => navigation.navigate('Otp')}
+        function={() => {
+          OtpFunction();
+        }}
       />
     </View>
   );
@@ -33,7 +36,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 300,
     padding: 20,
-    marginBottom: '30%',
+    paddingBottom: '30%',
+    backgroundColor: '#FFF',
   },
   logo: {
     marginLeft: 70,

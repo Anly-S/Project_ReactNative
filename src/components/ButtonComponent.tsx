@@ -10,7 +10,7 @@ const ButtonComponent = (props: any) => {
   };
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text>{props.title}</Text>
+      <Text style={styles.buttonTitle}>{props.title}</Text>
     </TouchableOpacity>
   );
 };
@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginLeft: '3%',
     marginRight: '3%',
+    fontWeight: 'bold',
+  },
+  buttonTitle: {
     fontWeight: 'bold',
   },
 });

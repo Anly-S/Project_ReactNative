@@ -3,45 +3,16 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import OtpScreen from '../screens/Otp';
-import SignUpScreen from '../screens/SignUp';
-import LoginScreen from '../screens/Login';
-import SplashScreen from '../screens/SplashScreen';
-import OtpSend from '../screens/OtpSend';
 import ContactsScreen from '../screens/Contacts';
 import ProfileScreen from '../screens/Profile';
 import GroupsScreen from '../screens/Groups';
+import NewPage from '../screens/NewPage';
 
 const Stack = createNativeStackNavigator();
 
-export function HomeStackMavigation() {
+export function HomeStackNavigation() {
   return (
     <Stack.Navigator initialRouteName="SignUp">
-      <Stack.Screen
-        name="SplashScreen"
-        component={SplashScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="SignUp"
-        component={SignUpScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="OtpSend"
-        component={OtpSend}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Otp"
-        component={OtpScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Login"
-        component={LoginScreen}
-        options={{headerShown: false}}
-      />
       <Stack.Screen
         name="Contacts"
         component={BottomNavigation}
@@ -100,6 +71,21 @@ export default function BottomNavigation() {
           },
         }}
       />
+      {/* <Tab.Screen
+        name="NewPage"
+        component={NewPage}
+        options={{
+          headerShown: false,
+          tabBarActiveTintColor: 'black',
+          tabBarIcon: ({color}) => (
+            <MaterialIcons name="person" size={42} color={color} />
+          ),
+          tabBarLabelStyle: {
+            fontSize: 10,
+            fontWeight: 'bold',
+          },
+        }}
+      /> */}
     </Tab.Navigator>
   );
 }

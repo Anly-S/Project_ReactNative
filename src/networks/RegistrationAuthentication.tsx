@@ -42,5 +42,10 @@ export async function signupUser({
     errorMessage = error.message;
   }
 
-  return {success, statusCode, signupResp, errorMessage};
+  return {
+    success,
+    statusCode,
+    signupResp,
+    errorMessage,
+  };
 }

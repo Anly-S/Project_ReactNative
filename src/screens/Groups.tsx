@@ -17,7 +17,9 @@ const GroupsScreen = () => {
         bgColor="#FF7D54"
         noOfContacts="4"
       />
-      <ScanCameraComponent />
+      <View style={styles.scan}>
+        <ScanCameraComponent />
+      </View>
     </View>
   );
 };
@@ -32,12 +34,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFF',
     paddingLeft: 25,
     paddingRight: 25,
+    width: '100%',
+    height: '100%',
   },
   groupsHead: {
     fontSize: 40,
     fontWeight: 'bold',
     color: '#000',
     paddingBottom: 20,
+  },
+  scan: {
+    marginTop: '40%',
   },
 });
 

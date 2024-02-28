@@ -8,15 +8,15 @@ import {setStringItem} from '../utils/Utils';
 import Constants from '../utils/Constants';
 import {userLogin} from '../context/userSlice';
 import {useDispatch} from 'react-redux';
+import {userData} from '../context/dataSlice';
+import InputComponent from '../components/InputComponent';
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-  // const handlePress = () => {
-  //   navigation.navigate('Contacts');
-  // };
 
   const LoginFunction = async () => {
     console.log(email, password);
@@ -27,6 +27,8 @@ const LoginScreen = () => {
     if (loginStatus.success === true) {
       setStringItem(Constants.IS_LOGIN, 'true');
       dispatch(userLogin(true));
+      setStringItem(Constants.USER_DATA, JSON.stringify(loginStatus.loginResp));
+      dispatch(userData(loginStatus.loginResp));
     }
   };
 
@@ -36,21 +38,15 @@ const LoginScreen = () => {
         style={styles.logo}
         source={require('../assets/experionLogo.png')}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
+      <InputComponent inputHead="Email" inputValue={email} setText={setEmail} />
+      <InputComponent
+        inputHead="Password"
+        inputValue={password}
+        setText={setPassword}
       />
       <ButtonComponent
         function={() => {
-          LoginFunction(email, password);
+          LoginFunction();
         }}
         title="LOGIN"
       />
@@ -78,7 +74,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 300,
     padding: 20,
-    marginTop: '40%',
+    paddingTop: '40%',
+    // marginTop: '40%',
+    backgroundColor: '#FFF',
   },
   logo: {
     marginLeft: 70,
