@@ -1,21 +1,23 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
+import {View, TextInput, StyleSheet, Image} from 'react-native';
 import ButtonComponent from '../components/ButtonComponent';
 import {useNavigation} from '@react-navigation/native';
-import LoginScreen from '../screens/Login';
 
 const OtpScreen = () => {
   const navigation = useNavigation();
-  const LoginFunction = () => {
-    navigation.navigate('LoginScreen');
+
+  const loginFunction = () => {
+    navigation.navigate('Login');
   };
+
   return (
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require('../assets/experionLogo.png')}
+        source={require('../assets/images/experionLogo.svg')}
       />
       <View style={styles.otp}>
+        {/* Render your OTP input fields here */}
         <TextInput style={styles.input} />
         <TextInput style={styles.input} />
         <TextInput style={styles.input} />
@@ -23,10 +25,11 @@ const OtpScreen = () => {
         <TextInput style={styles.input} />
         <TextInput style={styles.input} />
       </View>
+      {/* Pass onPress instead of function */}
       <ButtonComponent
         title="VERIFY"
-        function={() => {
-          LoginFunction();
+        onPress={() => {
+          loginFunction(); // Call the function to navigate to the Login screen
         }}
       />
     </View>
@@ -38,7 +41,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    height: 300,
     padding: 20,
   },
   logo: {
@@ -58,8 +60,7 @@ const styles = StyleSheet.create({
   otp: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginLeft: 30,
-    marginRight: 30,
+    marginHorizontal: 30,
     marginBottom: 10,
   },
 });

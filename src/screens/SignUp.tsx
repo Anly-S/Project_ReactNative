@@ -40,7 +40,7 @@ const SignUpScreen = () => {
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require('../assets/experionLogo.png')}
+        source={require('../assets/images/experionLogo.png')}
       />
       <InputComponent
         inputHead="Fullname"

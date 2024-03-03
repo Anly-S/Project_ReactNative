@@ -9,12 +9,6 @@ const InputComponent = (props: any) => {
     </View>
   );
 };
-// {
-//   props.inputPlaceholder;
-//   {props.inputValue}
-//   {props.setText}
-//onChangeText={setEmail}
-// }
 
 const styles = StyleSheet.create({
   inputHeadStyle: {

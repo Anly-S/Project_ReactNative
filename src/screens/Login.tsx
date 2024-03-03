@@ -36,7 +36,7 @@ const LoginScreen = () => {
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require('../assets/experionLogo.png')}
+        source={require('../assets/images/experionLogo.png')}
       />
       <InputComponent inputHead="Email" inputValue={email} setText={setEmail} />
       <InputComponent

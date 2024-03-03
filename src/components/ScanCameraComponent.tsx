@@ -6,7 +6,7 @@ const ScanCameraComponent = () => {
     <View style={styles.scanContainer}>
       <View style={styles.scanBackground}></View>
       <Image
-        source={require('../assets/scan.png')}
+        source={require('../assets/images/scan.png')}
         style={styles.scanIcon}></Image>
     </View>
   );

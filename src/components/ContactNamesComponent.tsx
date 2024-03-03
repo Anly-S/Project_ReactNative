@@ -1,14 +1,23 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const ContactNameComponent = (props: any) => {
+  const navigation = useNavigation();
+  const handlePress = () => {
+    console.log('Hello hi', props.card_id);
+    navigation.navigate('CardListScreen' as never, {
+      name: props.title2,
+      card_id: props.card_id,
+    });
+  };
   return (
-    <View style={styles.contactContainer}>
+    <TouchableOpacity style={styles.contactContainer} onPress={handlePress}>
       <View style={[styles.profileIcon, {backgroundColor: props.iconColor}]}>
         <Text style={styles.letter}>{props.title1}</Text>
       </View>
       <Text style={styles.contactName}>{props.title2}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -25,12 +34,12 @@ const styles = StyleSheet.create({
   },
   contactName: {
     fontWeight: 'normal',
+    fontFamily: 'Roboto',
     marginLeft: 10,
     color: 'black',
     fontSize: 22,
   },
   profileIcon: {
-    // backgroundColor: `#AEFAAD`,
     borderRadius: 30,
     height: 60,
     width: 60,

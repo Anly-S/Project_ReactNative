@@ -11,7 +11,7 @@ const SearchBarComponent = (props: any) => {
         onChangeText={props.onChangetext}
       />
       <Image
-        source={require('../assets/search.png')}
+        source={require('../assets/images/search.png')}
         style={styles.searchIcon}
       />
     </View>

@@ -9,7 +9,7 @@ const GroupComponent = (props: any) => {
         <View style={styles.groupDes}>
           <Image
             style={styles.groupIcon}
-            source={require('../assets/groups.png')}></Image>
+            source={require('../assets/images/groups.png')}></Image>
           <Text style={styles.groupCount}>{props.noOfContacts} Contacts</Text>
         </View>
       </View>

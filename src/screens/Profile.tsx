@@ -6,6 +6,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import Constants from '../utils/Constants';
 import {setStringItem} from '../utils/Utils';
 import InputComponent from '../components/InputComponent';
+import ChangePasswordScreen from '../screens/ChangePassword.tsx';
+import ProfileButtonComponent from '../components/ProfileButtonComponents.tsx';
+import {useNavigation} from '@react-navigation/native';
 
 const ProfileScreen = () => {
   const dispatch = useDispatch();
@@ -16,6 +19,10 @@ const ProfileScreen = () => {
   const LogoutFunction = async () => {
     setStringItem(Constants.IS_LOGIN, 'false');
     dispatch(userLogin(false));
+  };
+  const navigate = useNavigation();
+  const ChangePassword = () => {
+    navigate.navigate('ChangePasswordScreen');
   };
 
   return (
@@ -28,18 +35,41 @@ const ProfileScreen = () => {
       <Text style={styles.email}>pranav@experionglobal.com</Text>
       <Text style={styles.contactCount}>Total Contacts:10</Text>
       <Text style={styles.groupsCount}>Contact Groups:4</Text>
-      <TouchableOpacity style={styles.button}>
+      {/* <TouchableOpacity style={styles.button}>
         <Text style={styles.viewShared}>View Shared Cards</Text>
         <Image
           style={styles.rightArrow}
           source={require('../assets/rightArrow.png')}></Image>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button1}>
-        <Text style={styles.changePass}>Change Password</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={LogoutFunction}>
-        <Text style={styles.logout}>Logout</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <View style={styles.buttonContainer}>
+        <ProfileButtonComponent
+          proButtonBgColor="#FFF"
+          proButtonTextColor="#0B0B0B"
+          title="View Shared Cards  >"
+          children={undefined}
+          onPressing={function () {
+            throw new Error('Function not implemented.');
+          }}
+        />
+        <ProfileButtonComponent
+          proButtonBgColor="#A1D5E3"
+          proButtonTextColor="#0B0B0B"
+          title="Change Password"
+          children={undefined}
+          onPressing={function () {
+            throw new Error('Function not implemented.');
+          }}
+        />
+        <ProfileButtonComponent
+          proButtonBgColor="#FFF"
+          proButtonTextColor="#E53F3F"
+          title="Logout"
+          children={undefined}
+          onPressing={function () {
+            throw new Error('Function not implemented.');
+          }}
+        />
+      </View>
       <View style={styles.scan}>
         <ScanCameraComponent />
       </View>
@@ -213,6 +243,9 @@ const styles = StyleSheet.create({
   },
   scan: {
     marginTop: '32%',
+  },
+  buttonContainer: {
+    gap: 10,
   },
 });
 
