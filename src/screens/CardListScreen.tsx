@@ -83,6 +83,7 @@ const CardListScreen = ({route}: any) => {
                 phone_number={item.phone}
                 company_name={item.company_name}
                 alignToSides={true}
+                card_id={item.card_id} //new
               />
             )}
             keyExtractor={item => item.card_id}

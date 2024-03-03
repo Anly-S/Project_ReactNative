@@ -9,6 +9,7 @@ import ProfileScreen from '../screens/Profile';
 import GroupsScreen from '../screens/Groups';
 import NewPage from '../screens/NewPage';
 import CardListScreen from '../screens/CardListScreen';
+import CardDetailsScreen from '../screens/CardDetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,11 @@ const ContactNavigation = () => {
       <ContactStack.Screen
         name="CardListScreen"
         component={CardListScreen}
+        options={{headerShown: false}}
+      />
+      <ContactStack.Screen
+        name="CardDetailsScreen"
+        component={CardDetailsScreen}
         options={{headerShown: false}}
       />
     </ContactStack.Navigator>

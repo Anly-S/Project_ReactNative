@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  BottomNavigation,
-  HomeStackNavigation,
-} from '../src/navigations/AppNavigation';
+import {BottomNavigation} from '../src/navigations/AppNavigation';
 import {useDispatch, useSelector} from 'react-redux';
 import {userLogin} from './context/userSlice';
 import Constants from './utils/Constants';
